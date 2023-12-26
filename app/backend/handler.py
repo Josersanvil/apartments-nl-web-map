@@ -105,15 +105,15 @@ def generate_map_html(
         <small>{apartment['address']}</small><br>
         <br>
 
-        💸 Price: <b>{apartment["price"]}€ per {apartment["price_period"]}</b><br>
-        🧱 Surface: {apartment["surface_area_amount"]} {apartment["surface_area_unit"]}<br>
-        🛋️ {apartment["interior_type"]}<br>
-        {str(int(float(apartment["n_rooms"])))+" Rooms<br>" if apartment["n_rooms"] else ""}
+        <i class="fa-solid fa-sack-dollar"></i> Price: <b>{apartment["price"]}€ per {apartment["price_period"]}</b><br>
+        <i class="fa-solid fa-layer-group"></i> Surface: {apartment["surface_area_amount"]} {apartment["surface_area_unit"]}<br>
+        {'<i class="fa-solid fa-couch"></i> ' + apartment["interior_type"] + "<br>" if apartment["interior_type"] else ""}
+        {'<i class="fa-solid fa-door-closed"></i> ' + str(int(float(apartment["n_rooms"])))+" Rooms<br>" if apartment["n_rooms"] else ""}
         <br>
-        
-        🚂 {apartment["time_to_office"]} from office*<br>
+
+        <i class="fa-solid fa-train"></i> {apartment["time_to_office"]} from office*<br>
         <a href="{apartment["office_directions_url"]}" {open_new_tab_html}>Directions to office</a><br>
-        🚂 {apartment["time_to_center"]} from city center*<br>
+        <i class="fa-solid fa-train"></i>  {apartment["time_to_center"]} from city center*<br>
         <a href="{apartment["center_directions_url"]}" {open_new_tab_html}>Directions to city center</a><br>
         <br>
 
