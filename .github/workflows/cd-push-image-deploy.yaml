@@ -13,6 +13,10 @@ name: Push image to DockerHub and deploy to ECS
 concurrency:
   group: ${{ github.workflow }}
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   push-to-dockerhub:
     runs-on: ubuntu-latest
