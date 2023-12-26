@@ -181,6 +181,4 @@ def generate_map_html(
         {{% endmacro %}}
         """
     )
-    with open("map.html", "w") as f:
-        f.write(m._repr_html_())
     return m.get_root().render()
