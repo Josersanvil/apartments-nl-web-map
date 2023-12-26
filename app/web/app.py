@@ -14,10 +14,15 @@ sys.path.append(str(Path(__file__).parent.parent))
 from backend.handler import generate_map_html
 
 st.set_page_config(
-    page_title="Apartments Map",
+    page_title="Apartments in The Netherlands",
     page_icon="🗺️",
     layout="wide",
     initial_sidebar_state="expanded",
+    menu_items={
+        "Get Help": "https://github.com/Josersanvil/apartments-nl-web-map/discussions",
+        "Report a bug": "https://github.com/Josersanvil/apartments-nl-web-map/issues/new",
+        "About": "See https://github.com/Josersanvil/apartments-nl-web-map",
+    },
 )
 
 
@@ -166,14 +171,15 @@ OFFICE_NAME = os.getenv("APARTMENTS_MAP_OFFICE_NAME", "the Office")
 with st.expander("ℹ️ About", expanded=False):
     st.info(
         f"""
-        This map shows apartments that are for rent in some cities in The Netherlands and their distance
+        This map shows apartments that are for rent in some cities in The Netherlands and the distance
         to their respective city center and to {OFFICE_NAME}.
 
         The apartments are scraped from the following websites:
         - [Pararius](https://www.pararius.com/)
 
         The apartments can also be marked as favorite (purple) or visited (red) in the map to keep track of them.
-        Use the filters on the left to filter the apartments on the map or add a custom marker.
+        
+        Use the filters on the sidebar (left) to filter the apartments on the map or add a custom marker.
 
         Happy apartment hunting! 🏠
         """
@@ -186,7 +192,7 @@ parsed_query_params = parse_query_params(query_params)
 with st.sidebar:
     st.warning(
         "⚠️ Applying filters or changing the custom marker will reset the map, including "
-        "visited and favorite apartments."
+        "visited and favorited apartments."
     )
     st.header("Add filters", help="Filter the apartments on the map.")
     # Warn that adding filters will remove the custom markers

@@ -93,11 +93,17 @@ def generate_map_html(
                 coordinates, custom_marker_coords
             )
             custom_marker_html = (
+                "<i class='fa-solid fa-user'></i> "
                 f"<a href='{custom_marker_directions_url}' {open_new_tab_html}>"
                 f"Directions to '{cm['name']}'</a><br>"
             )
             custom_markers_html += custom_marker_html
         button_style = f'style="{btn_style_part}" {btn_click_part}'
+        surface_area_unit = (
+            "sqm"
+            if apartment["surface_area_unit"] == "m²"
+            else apartment["surface_area_unit"]
+        )
         details = f"""
         <div id="_apt_{idx}">
         <a href={apartment['url']} {open_new_tab_html}><img src="{apartment["thumbnail"]}" width="150px" style="max-height: 125px; object-fit: cover"></a><br>
@@ -105,8 +111,8 @@ def generate_map_html(
         <small>{apartment['address']}</small><br>
         <br>
 
-        <i class="fa-solid fa-sack-dollar"></i> Price: <b>{apartment["price"]}€ per {apartment["price_period"]}</b><br>
-        <i class="fa-solid fa-layer-group"></i> Surface: {apartment["surface_area_amount"]} {apartment["surface_area_unit"]}<br>
+        <i class="fa-solid fa-sack-dollar"></i> Price: <b>{apartment["price"]} <i class="fa-solid fa-euro-sign fa-sm"></i> per {apartment["price_period"]}</b><br>
+        <i class="fa-solid fa-layer-group"></i> Surface: {apartment["surface_area_amount"]} {surface_area_unit}<br>
         {'<i class="fa-solid fa-couch"></i> ' + apartment["interior_type"] + "<br>" if apartment["interior_type"] else ""}
         {'<i class="fa-solid fa-door-closed"></i> ' + str(int(float(apartment["n_rooms"])))+" Rooms<br>" if apartment["n_rooms"] else ""}
         <br>
