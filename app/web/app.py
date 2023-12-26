@@ -320,8 +320,20 @@ map_html = generate_map_html(
     apartments_to_show,
     custom_markers=[custom_marker] if custom_marker else [],
 )
-# Remove strange characters from the html:
+# Remove strange characters from the html except for the emojis
+safe_emojis = ["🏠", "🙈", "💸", "🧱", "🛋️", "🚂"]
+emojis_codes = {}
+for emoji in safe_emojis:
+    emoji_code = ""
+    for char in emoji:
+        emoji_code += str(ord(char))
+    emojis_codes[emoji] = emoji_code
+    map_html = map_html.replace(emoji, f"emoji:{emoji_code}:")
 map_html = map_html.encode("ascii", "ignore").decode("ascii")
+# Add emojis back
+for emoji in safe_emojis:
+    emoji_code = emojis_codes[emoji]
+    map_html = map_html.replace(f"emoji:{emoji_code}:", emoji)
 # Add iframe:
 components.html(map_html, width=None, height=600)
 st.text(

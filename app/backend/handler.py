@@ -100,7 +100,7 @@ def generate_map_html(
         button_style = f'style="{btn_style_part}" {btn_click_part}'
         details = f"""
         <div id="_apt_{idx}">
-        <a href={apartment['url']} {open_new_tab_html}><img src="{apartment["thumbnail"]}" width="150px"></a><br>
+        <a href={apartment['url']} {open_new_tab_html}><img src="{apartment["thumbnail"]}" width="150px" style="max-height: 125px; object-fit: cover"></a><br>
         <a href={apartment['url']} {open_new_tab_html} style='font-weight: bold'>{apartment['title']}</a><br>
         <small>{apartment['address']}</small><br>
         <br>
