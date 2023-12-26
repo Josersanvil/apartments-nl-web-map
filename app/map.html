@@ -1,0 +1,319 @@
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_35c719f33501f64dfa2cb7be991bbc52 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_35c719f33501f64dfa2cb7be991bbc52&quot; &gt;&lt;/div&gt;
+        
+    
+            &lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;Apartments in The Netherlands&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css&quot;
+        integrity=&quot;sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==&quot;
+        crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot; /&gt;
+    &lt;script src=&#x27;https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js&#x27;&gt;&lt;/script&gt;
+    &lt;link href=&#x27;https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css&#x27;
+        rel=&#x27;stylesheet&#x27; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_35c719f33501f64dfa2cb7be991bbc52 = L.map(
+                &quot;map_35c719f33501f64dfa2cb7be991bbc52&quot;,
+                {
+                    center: [52.3152336, 4.9498692],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_df143b22c81b228a6b23704756ab0829 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_df143b22c81b228a6b23704756ab0829.addTo(map_35c719f33501f64dfa2cb7be991bbc52);
+        
+    
+            var marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_779e9e71174489366c960bb7e3c73311 = L.marker(
+                [52.3518632, 4.7792406],
+                {}
+            ).addTo(marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d);
+        
+    
+            var icon_71f6c2a21760ec6dd5bcaf6e744288a0 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0 _apt_0_marker_icon&quot;, &quot;icon&quot;: &quot;home&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_779e9e71174489366c960bb7e3c73311.setIcon(icon_71f6c2a21760ec6dd5bcaf6e744288a0);
+        
+    
+        var popup_293547ffeaa07fd1c2463da350424a1c = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_ba14bfe25e706be47ab5c25e2d349d1e = $(`&lt;div id=&quot;html_ba14bfe25e706be47ab5c25e2d349d1e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;         &lt;div id=&quot;_apt_0&quot;&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/6f237818/ernst-cahnsingel target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;img src=&quot;https://casco-media-prod.global.ssl.fastly.net/6f237818-d544-54e2-bcb1-1efb2892e3a9/4479f1f15a8fa312f749e73fea6753c5.jpg?width=600&amp;auto=webp&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;&lt;br&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/6f237818/ernst-cahnsingel target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&#x27;font-weight: bold&#x27;&gt;Flat Ernst Cahnsingel&lt;/a&gt;&lt;br&gt;         &lt;small&gt;1069 PX Amsterdam (De Aker)&lt;/small&gt;&lt;br&gt;         &lt;br&gt;          💸 Price: &lt;b&gt;1850.0€ per month&lt;/b&gt;&lt;br&gt;         🧱 Surface: 80.0 m²&lt;br&gt;         🛋️ Furnished&lt;br&gt;         3 Rooms&lt;br&gt;         &lt;br&gt;                  🚂 53 mins from office*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.3518632,4.7792406/52.3152336,4.9498692/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to office&lt;/a&gt;&lt;br&gt;         🚂 48 mins from city center*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.3518632,4.7792406/52.3791283,4.900272/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to city center&lt;/a&gt;&lt;br&gt;         &lt;br&gt;                    &lt;small&gt;         * est. time by public transport&lt;br&gt;         First seen at: 2023-12-22&lt;br&gt;         Last seen at: 2023-12-25&lt;br&gt;         &lt;/small&gt;          &lt;div style=&quot;display: flex; gap: 10px; margin-top: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markVisited(0)&quot;&gt;Mark visited&lt;/button&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markFavorite(0)&quot;&gt;Mark favorite&lt;/button&gt;         &lt;/div&gt;         &lt;div style=&quot;display: flex; justify-content: center; margin-top: 5px; margin-bottom: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;; width: 100%;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;setDefaultColor(0)&quot;&gt;Reset&lt;/button&gt;         &lt;/div&gt;         &lt;/div&gt;         &lt;/div&gt;`)[0];
+                popup_293547ffeaa07fd1c2463da350424a1c.setContent(html_ba14bfe25e706be47ab5c25e2d349d1e);
+            
+        
+
+        marker_779e9e71174489366c960bb7e3c73311.bindPopup(popup_293547ffeaa07fd1c2463da350424a1c)
+        ;
+
+        
+    
+    
+            marker_779e9e71174489366c960bb7e3c73311.bindTooltip(
+                `&lt;div&gt;
+                     Flat Ernst Cahnsingel
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_b626af923cc2f9739a043645dcd12c43 = L.marker(
+                [52.40367879999999, 4.8977876],
+                {}
+            ).addTo(marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d);
+        
+    
+            var icon_639fa7280c911235b26912b61b5b6779 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0 _apt_1_marker_icon&quot;, &quot;icon&quot;: &quot;home&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_b626af923cc2f9739a043645dcd12c43.setIcon(icon_639fa7280c911235b26912b61b5b6779);
+        
+    
+        var popup_6029477e39f850733cc9bf4357b9d57d = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_4af06d5f38fd322852bceee9a96a22b7 = $(`&lt;div id=&quot;html_4af06d5f38fd322852bceee9a96a22b7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;         &lt;div id=&quot;_apt_1&quot;&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/d53348de/strekkerweg target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;img src=&quot;https://casco-media-prod.global.ssl.fastly.net/d53348de-daf0-54b7-9dd8-4a86a7c865a2/389cf2051f1b23b2f48076d68999a723.jpg?width=600&amp;auto=webp&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;&lt;br&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/d53348de/strekkerweg target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&#x27;font-weight: bold&#x27;&gt;Flat Strekkerweg&lt;/a&gt;&lt;br&gt;         &lt;small&gt;1033 DA Amsterdam (Tuindorp Oostzaan)&lt;/small&gt;&lt;br&gt;         &lt;br&gt;          💸 Price: &lt;b&gt;1500.0€ per month&lt;/b&gt;&lt;br&gt;         🧱 Surface: 71.0 m²&lt;br&gt;         🛋️ &lt;br&gt;         2 Rooms&lt;br&gt;         &lt;br&gt;                  🚂 40 mins from office*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.40367879999999,4.8977876/52.3152336,4.9498692/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to office&lt;/a&gt;&lt;br&gt;         🚂 19 mins from city center*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.40367879999999,4.8977876/52.3791283,4.900272/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to city center&lt;/a&gt;&lt;br&gt;         &lt;br&gt;                    &lt;small&gt;         * est. time by public transport&lt;br&gt;         First seen at: 2023-12-22&lt;br&gt;         Last seen at: 2023-12-25&lt;br&gt;         &lt;/small&gt;          &lt;div style=&quot;display: flex; gap: 10px; margin-top: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markVisited(1)&quot;&gt;Mark visited&lt;/button&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markFavorite(1)&quot;&gt;Mark favorite&lt;/button&gt;         &lt;/div&gt;         &lt;div style=&quot;display: flex; justify-content: center; margin-top: 5px; margin-bottom: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;; width: 100%;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;setDefaultColor(1)&quot;&gt;Reset&lt;/button&gt;         &lt;/div&gt;         &lt;/div&gt;         &lt;/div&gt;`)[0];
+                popup_6029477e39f850733cc9bf4357b9d57d.setContent(html_4af06d5f38fd322852bceee9a96a22b7);
+            
+        
+
+        marker_b626af923cc2f9739a043645dcd12c43.bindPopup(popup_6029477e39f850733cc9bf4357b9d57d)
+        ;
+
+        
+    
+    
+            marker_b626af923cc2f9739a043645dcd12c43.bindTooltip(
+                `&lt;div&gt;
+                     Flat Strekkerweg
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_26335385c4ba37d5bffad3a10273824d = L.marker(
+                [52.40997120000001, 4.9226145],
+                {}
+            ).addTo(marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d);
+        
+    
+            var icon_d971ee0596532b20a32610c51c5a3b83 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0 _apt_2_marker_icon&quot;, &quot;icon&quot;: &quot;home&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_26335385c4ba37d5bffad3a10273824d.setIcon(icon_d971ee0596532b20a32610c51c5a3b83);
+        
+    
+        var popup_3c39783c86977a7c3a8979a91988ab5f = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_076426b6f28f65238f63b32159993fe6 = $(`&lt;div id=&quot;html_076426b6f28f65238f63b32159993fe6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;         &lt;div id=&quot;_apt_2&quot;&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/4b8add76/spinaker target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;img src=&quot;https://casco-media-prod.global.ssl.fastly.net/4b8add76-2427-5db4-a237-1227bd3ee3db/bfc493bea16badc141982421c15d3be9.jpg?width=600&amp;auto=webp&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;&lt;br&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/4b8add76/spinaker target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&#x27;font-weight: bold&#x27;&gt;Flat Spinaker 123&lt;/a&gt;&lt;br&gt;         &lt;small&gt;1034 MH Amsterdam (Banne Buiksloot)&lt;/small&gt;&lt;br&gt;         &lt;br&gt;          💸 Price: &lt;b&gt;1850.0€ per month&lt;/b&gt;&lt;br&gt;         🧱 Surface: 75.0 m²&lt;br&gt;         🛋️ Part-furnished&lt;br&gt;         3 Rooms&lt;br&gt;         &lt;br&gt;                  🚂 47 mins from office*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.40997120000001,4.9226145/52.3152336,4.9498692/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to office&lt;/a&gt;&lt;br&gt;         🚂 24 mins from city center*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.40997120000001,4.9226145/52.3791283,4.900272/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to city center&lt;/a&gt;&lt;br&gt;         &lt;br&gt;                    &lt;small&gt;         * est. time by public transport&lt;br&gt;         First seen at: 2023-12-20&lt;br&gt;         Last seen at: 2023-12-25&lt;br&gt;         &lt;/small&gt;          &lt;div style=&quot;display: flex; gap: 10px; margin-top: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markVisited(2)&quot;&gt;Mark visited&lt;/button&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markFavorite(2)&quot;&gt;Mark favorite&lt;/button&gt;         &lt;/div&gt;         &lt;div style=&quot;display: flex; justify-content: center; margin-top: 5px; margin-bottom: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;; width: 100%;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;setDefaultColor(2)&quot;&gt;Reset&lt;/button&gt;         &lt;/div&gt;         &lt;/div&gt;         &lt;/div&gt;`)[0];
+                popup_3c39783c86977a7c3a8979a91988ab5f.setContent(html_076426b6f28f65238f63b32159993fe6);
+            
+        
+
+        marker_26335385c4ba37d5bffad3a10273824d.bindPopup(popup_3c39783c86977a7c3a8979a91988ab5f)
+        ;
+
+        
+    
+    
+            marker_26335385c4ba37d5bffad3a10273824d.bindTooltip(
+                `&lt;div&gt;
+                     Flat Spinaker 123
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            var marker_f3ecda0a5804316c314e1fb0a94c3bdf = L.marker(
+                [52.3626756, 4.9151526],
+                {}
+            ).addTo(marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d);
+        
+    
+            var icon_f4a626209805fea9c4cdcc6624069c50 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0 _apt_3_marker_icon&quot;, &quot;icon&quot;: &quot;home&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_f3ecda0a5804316c314e1fb0a94c3bdf.setIcon(icon_f4a626209805fea9c4cdcc6624069c50);
+        
+    
+        var popup_42d738892752dedae000719c1fa891a0 = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_f1917c2fff9bd838d56a0e865bb797e9 = $(`&lt;div id=&quot;html_f1917c2fff9bd838d56a0e865bb797e9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;         &lt;div id=&quot;_apt_3&quot;&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/25bedfbe/sarphatistraat target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;img src=&quot;https://casco-media-prod.global.ssl.fastly.net/25bedfbe-a3a7-52fd-9dd0-87867918cd24/9a44dc475c8cccdd3bb282ac12e87a91.jpg?width=600&amp;auto=webp&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;&lt;br&gt;         &lt;a href=https://www.pararius.com/apartment-for-rent/amsterdam/25bedfbe/sarphatistraat target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&#x27;font-weight: bold&#x27;&gt;Flat Sarphatistraat&lt;/a&gt;&lt;br&gt;         &lt;small&gt;1018 GH Amsterdam (Weesperbuurt/Plantage)&lt;/small&gt;&lt;br&gt;         &lt;br&gt;          💸 Price: &lt;b&gt;1750.0€ per month&lt;/b&gt;&lt;br&gt;         🧱 Surface: 76.0 m²&lt;br&gt;         🛋️ Part-furnished&lt;br&gt;         3 Rooms&lt;br&gt;         &lt;br&gt;                  🚂 24 mins from office*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.3626756,4.9151526/52.3152336,4.9498692/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to office&lt;/a&gt;&lt;br&gt;         🚂 14 mins from city center*&lt;br&gt;         &lt;a href=&quot;https://www.google.com/maps/dir/52.3626756,4.9151526/52.3791283,4.900272/data=!4m2!4m1!3e3&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Directions to city center&lt;/a&gt;&lt;br&gt;         &lt;br&gt;                    &lt;small&gt;         * est. time by public transport&lt;br&gt;         First seen at: 2023-12-19&lt;br&gt;         Last seen at: 2023-12-25&lt;br&gt;         &lt;/small&gt;          &lt;div style=&quot;display: flex; gap: 10px; margin-top: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markVisited(3)&quot;&gt;Mark visited&lt;/button&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;markFavorite(3)&quot;&gt;Mark favorite&lt;/button&gt;         &lt;/div&gt;         &lt;div style=&quot;display: flex; justify-content: center; margin-top: 5px; margin-bottom: 10px;&quot;&gt;             &lt;button style=&quot;background-color: #4CAF50; border: none; color: white;text-align: center; text-decoration: none; display: inline-block;; width: 100%;&quot; onMouseOver=&quot;this.style.color=&#x27;yellow&#x27;&quot; onMouseOut=&quot;this.style.color=&#x27;white&#x27;&quot; onclick=&quot;setDefaultColor(3)&quot;&gt;Reset&lt;/button&gt;         &lt;/div&gt;         &lt;/div&gt;         &lt;/div&gt;`)[0];
+                popup_42d738892752dedae000719c1fa891a0.setContent(html_f1917c2fff9bd838d56a0e865bb797e9);
+            
+        
+
+        marker_f3ecda0a5804316c314e1fb0a94c3bdf.bindPopup(popup_42d738892752dedae000719c1fa891a0)
+        ;
+
+        
+    
+    
+            marker_f3ecda0a5804316c314e1fb0a94c3bdf.bindTooltip(
+                `&lt;div&gt;
+                     Flat Sarphatistraat
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d.addTo(map_35c719f33501f64dfa2cb7be991bbc52);
+        
+    
+            var marker_be12b4ea3d77ecb2d95240fc6ce9c08d = L.marker(
+                [52.3152336, 4.9498692],
+                {}
+            ).addTo(map_35c719f33501f64dfa2cb7be991bbc52);
+        
+    
+            var icon_44df89f57c159a49be0f162044d8cc49 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;building&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;orange&quot;, &quot;prefix&quot;: &quot;fa&quot;}
+            );
+            marker_be12b4ea3d77ecb2d95240fc6ce9c08d.setIcon(icon_44df89f57c159a49be0f162044d8cc49);
+        
+    
+        var popup_7db69c49959c2209aa0bf959fa82224b = L.popup({&quot;maxWidth&quot;: &quot;100%&quot;});
+
+        
+            
+                var html_0e830a98f7a78319359eed501e5fec66 = $(`&lt;div id=&quot;html_0e830a98f7a78319359eed501e5fec66&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;ING Cedar Office&lt;/b&gt;&lt;br&gt;Bijlmerdreef 106, 1102 CT Amsterdam, Netherlands&lt;/div&gt;`)[0];
+                popup_7db69c49959c2209aa0bf959fa82224b.setContent(html_0e830a98f7a78319359eed501e5fec66);
+            
+        
+
+        marker_be12b4ea3d77ecb2d95240fc6ce9c08d.bindPopup(popup_7db69c49959c2209aa0bf959fa82224b)
+        ;
+
+        
+    
+    
+            marker_be12b4ea3d77ecb2d95240fc6ce9c08d.bindTooltip(
+                `&lt;div&gt;
+                     ING Cedar Office
+                 &lt;/div&gt;`,
+                {&quot;sticky&quot;: true}
+            );
+        
+    
+            ALL_MARKERS = {0: &#x27;marker_779e9e71174489366c960bb7e3c73311&#x27;, 1: &#x27;marker_b626af923cc2f9739a043645dcd12c43&#x27;, 2: &#x27;marker_26335385c4ba37d5bffad3a10273824d&#x27;, 3: &#x27;marker_f3ecda0a5804316c314e1fb0a94c3bdf&#x27;};
+            MAP_MARKERS_CLUSTER_NAME = &#x27;marker_cluster_7d6337bf90afc5ebd44913cde8d1cb7d&#x27;;
+            MAP_NAME = &#x27;map_35c719f33501f64dfa2cb7be991bbc52&#x27;;
+            MAX_APARTMENT_PRICE = 3500;
+            function markVisited(markerIdx) {
+    var markerName = ALL_MARKERS[markerIdx]
+    var marker = window[markerName];
+    marker.setIcon(new L.AwesomeMarkers.icon({ icon: &#x27;home&#x27;, markerColor: &#x27;red&#x27; }));
+    // Make sure it is in the cluster
+    var cluster = window[MAP_MARKERS_CLUSTER_NAME];
+    marker.addTo(cluster);
+}
+
+function markFavorite(markerIdx) {
+    var markerName = ALL_MARKERS[markerIdx]
+    var marker = window[markerName];
+    marker.setIcon(new L.AwesomeMarkers.icon({ icon: &#x27;star&#x27;, markerColor: &#x27;purple&#x27; }));
+    // Remove it from the cluster
+    var cluster = window[MAP_MARKERS_CLUSTER_NAME];
+    marker.removeFrom(cluster);
+    // Add it to the map
+    var map = window[MAP_NAME];
+    marker.addTo(map);
+}
+
+function setDefaultColor(markerIdx) {
+    var markerName = ALL_MARKERS[markerIdx]
+    var marker = window[markerName];
+    marker.setIcon(new L.AwesomeMarkers.icon({ icon: &#x27;home&#x27;, markerColor: &#x27;blue&#x27; }));
+    // Make sure it is in the cluster
+    var cluster = window[MAP_MARKERS_CLUSTER_NAME];
+    marker.addTo(cluster);
+}
+
+var map = window[MAP_NAME];
+map.addControl(new L.Control.Fullscreen());
+
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
