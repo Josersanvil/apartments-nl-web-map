@@ -1,4 +1,3 @@
-import json
 import logging
 from pathlib import Path
 from typing import Any
@@ -13,6 +12,26 @@ STATIC_FOLDER = ROOT_APP_FOLDER / "static"
 OFFICE_COORDS = {"lat": 52.3152336, "lng": 4.9498692}
 OFFICE_ADDRESS = "Bijlmerdreef 106, 1102 CT Amsterdam, Netherlands"
 OFFICE_NAME = "ING Cedar Office"
+
+
+def calculate_average_apartments_coords(
+    apartments: list[dict[str, Any]]
+) -> dict[str, float]:
+    """
+    Calculates the average coordinates of the apartments.
+    """
+    latitudes = []
+    longitudes = []
+    for apartment in apartments:
+        coordinates = apartment.get("coordinates")
+        if not coordinates:
+            continue
+        latitudes.append(coordinates["lat"])
+        longitudes.append(coordinates["lng"])
+    return {
+        "lat": sum(latitudes) / len(latitudes),
+        "lng": sum(longitudes) / len(longitudes),
+    }
 
 
 def get_logger() -> logging.Logger:
@@ -38,7 +57,8 @@ def generate_map_html(
     logger = get_logger()
     logger.info("Generating map...")
     office_coords = OFFICE_COORDS
-    start_location = (office_coords["lat"], office_coords["lng"])
+    avg_coords = calculate_average_apartments_coords(apartments)
+    start_location = (avg_coords["lat"], avg_coords["lng"])
     m = folium.Map(location=start_location, zoom_start=11)
     # if the points are too close to each other, cluster them, create a cluster overlay with MarkerCluster
     marker_cluster = MarkerCluster().add_to(m)

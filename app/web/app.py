@@ -123,8 +123,27 @@ def load_apartments() -> pl.DataFrame:
     return apartments
 
 
+def update_params_on_change():
+    """
+    Updates the query params when the filters are changed.
+    """
+    params = {
+        "city": st.session_state.city,
+        "max_price": st.session_state.max_price,
+        "min_surface": st.session_state.min_surface,
+        "interior_type": st.session_state.interior_type,
+        "max_days_online": st.session_state.max_days_online,
+    }
+    if st.session_state.custom_marker_name:
+        params["custom_marker_name"] = st.session_state.custom_marker_name
+    if st.session_state.custom_marker_lat:
+        params["custom_marker_lat"] = st.session_state.custom_marker_lat
+    if st.session_state.custom_marker_lng:
+        params["custom_marker_lng"] = st.session_state.custom_marker_lng
+    st.experimental_set_query_params(**params)
+
+
 st.title("Apartments in The Netherlands")
-query_params = get_query_params()
 raw_apartments = load_apartments()
 apartments = raw_apartments.with_columns(
     interior_type=(
@@ -162,6 +181,7 @@ with st.expander("ℹ️ About", expanded=False):
 
 max_value_price = 3500
 # Parse query params
+query_params = get_query_params()
 parsed_query_params = parse_query_params(query_params)
 with st.sidebar:
     st.warning(
@@ -183,6 +203,7 @@ with st.sidebar:
         selected_cities = st.multiselect(
             "City",
             possible_cities,
+            key="city",
             default=parsed_query_params.get("city", possible_cities),
         )
         # Max price filter
@@ -191,6 +212,7 @@ with st.sidebar:
             min_value=0,
             max_value=max_value_price,
             value=parsed_query_params.get("max_price", max_value_price),
+            key="max_price",
             step=50,
         )
         # Min surface filter
@@ -200,6 +222,7 @@ with st.sidebar:
             max_value=250,
             step=5,
             value=parsed_query_params.get("min_surface", 0),
+            key="min_surface",
         )
         # Interior type filter
         possible_interior_types = [
@@ -215,6 +238,7 @@ with st.sidebar:
             default=parsed_query_params.get(
                 "interior_type", possible_interior_types_title
             ),
+            key="interior_type",
         )
         # Filter days online
         max_days_online = st.slider(
@@ -223,16 +247,11 @@ with st.sidebar:
             max_value=60,
             step=1,
             value=parsed_query_params.get("max_days_online", 60),
+            key="max_days_online",
         )
-        filters_submit = st.form_submit_button("Apply filters")
-        if filters_submit:
-            st.experimental_set_query_params(
-                city=selected_cities,
-                max_price=max_price,
-                min_surface=min_surface,
-                interior_type=selected_interior_types,
-                max_days_online=max_days_online,
-            )
+        filters_submit = st.form_submit_button(
+            "Apply filters", on_click=update_params_on_change
+        )
     st.divider()
     # Custom markers
     st.header(
@@ -241,65 +260,36 @@ with st.sidebar:
     )
     with st.form("custom_markers_form", border=False):
         custom_marker_name = st.text_input(
-            "Name", value=parsed_query_params.get("custom_marker_name")
+            "Name",
+            value=parsed_query_params.get("custom_marker_name"),
+            key="custom_marker_name",
         )
         custom_marker_lat = st.number_input(
-            "Latitude", value=parsed_query_params.get("custom_marker_lat")
+            "Latitude",
+            value=parsed_query_params.get("custom_marker_lat"),
+            key="custom_marker_lat",
         )
         custom_marker_lng = st.number_input(
-            "Longitude", value=parsed_query_params.get("custom_marker_lng")
+            "Longitude",
+            value=parsed_query_params.get("custom_marker_lng"),
+            key="custom_marker_lng",
         )
-        marker_submit = st.form_submit_button("Add custom marker")
+        marker_submit = st.form_submit_button(
+            "Add custom marker", on_click=update_params_on_change
+        )
         if marker_submit and not all(
             [custom_marker_name, custom_marker_lat, custom_marker_lng]
         ):
             st.error("Ups! You forgot to fill one of the fields.", icon="🙈")
-        elif marker_submit:
-            st.experimental_set_query_params(
-                custom_marker_name=custom_marker_name,
-                custom_marker_lat=custom_marker_lat,
-                custom_marker_lng=custom_marker_lng,
-            )
-    # Filter apartments based on the filters
-    selected_cities_internal_names = list(
-        map(
-            lambda city: city.lower().replace(" ", "-"),
-            selected_cities,
-        )
-    )
-    apartments_filters = {
-        "city": parsed_query_params.get("city", selected_cities),
-        "max_price": parsed_query_params.get("max_price", max_price),
-        "min_surface": parsed_query_params.get("min_surface", min_surface),
-        "interior_type": parsed_query_params.get(
-            "interior_type", selected_interior_types
-        ),
-        "max_days_online": parsed_query_params.get("max_days_online", max_days_online),
-    }
-    print(apartments_filters)
-    # Add button to export filters
-    # st.divider()
-    # filters_query_params = {
-    #     **apartments_filters,
-    # }
-    # if custom_marker_name:
-    #     filters_query_params["custom_marker_name"] = custom_marker_name
-    # if custom_marker_lat:
-    #     filters_query_params["custom_marker_lat"] = custom_marker_lat
-    # if custom_marker_lng:
-    #     filters_query_params["custom_marker_lng"] = custom_marker_lng
-    # export_url = export_filters_url(filters_query_params)
-    # export_btn = st.button(
-    #     "Export filters",
-    #     help="Export the current filters as a url that you can copy",
-    # )
-    # if export_btn:
-    #     st.info(f"ℹ️ Copy the url below to save it for later or share it with others.")
-    #     st.code(export_url)
 
-
+# Filter apartments based on the filters
 filtered_apartments = apartments
-
+selected_cities_internal_names = list(
+    map(
+        lambda city: city.lower().replace(" ", "-"),
+        selected_cities,
+    )
+)
 # Filter apartments
 filtered_apartments = filtered_apartments.filter(
     (apartments["city"].str.to_lowercase().is_in(selected_cities_internal_names))
