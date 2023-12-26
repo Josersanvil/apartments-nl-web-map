@@ -3,7 +3,7 @@
 A Streamlit app that displays a map that shows apartments that are for rent in some cities in The Netherlands and their distance
 to their respective city center and to the ING offices in Amsterdam.
 
-The data used from the apartments can be scraped from websites like [Pararius](https://www.pararius.com/apartments/amsterdam) or [Funda](https://www.funda.nl/en/huur/amsterdam/) using <https://github.com/Josersanvil/apartments-scraper>.
+The data used for the apartments can be scraped from websites like [Pararius](https://www.pararius.com/apartments/amsterdam) using <https://github.com/Josersanvil/apartments-scraper>.
 
 ![site-image](docs/images/site-image.png)
 
@@ -20,7 +20,7 @@ docker pull josersanvil/apartments-scraper-web-map:latest
 docker run -p 8501:8501 --env-file=.env josersanvil/apartments-scraper-web-map:latest
 ```
 
-This will spin up the streamlit app will at <http://localhost:8501>.
+This will spin up the streamlit app at <http://localhost:8501>.
 
 > Remember to set the required environment variables in a `.env` file. See the [Environment variables](#environment-variables) section for more information.
 
