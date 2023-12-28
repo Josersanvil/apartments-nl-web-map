@@ -156,15 +156,9 @@ apartments = raw_apartments.with_columns(
         .then(pl.lit("?"))
         .otherwise(raw_apartments["interior_type"])
     ),
-    last_seen_at=raw_apartments["last_seen_at"].str.to_datetime("%Y-%m-%d %H:%M:%S%.f"),
-    first_seen_at=raw_apartments["first_seen_at"].str.to_datetime(
-        "%Y-%m-%d %H:%M:%S%.f"
-    ),
-)
-apartments = apartments.with_columns(
     days_online=(
-        apartments["last_seen_at"] - apartments["first_seen_at"]
-    ).dt.total_days()
+        raw_apartments["last_seen_at"] - raw_apartments["first_seen_at"]
+    ).dt.total_days(),
 )
 
 OFFICE_NAME = os.getenv("APARTMENTS_MAP_OFFICE_NAME", "the Office")
@@ -297,6 +291,7 @@ selected_cities_internal_names = list(
     )
 )
 # Filter apartments
+max_limit = get_apartments_max_limit()
 filtered_apartments = filtered_apartments.filter(
     (apartments["city"].str.to_lowercase().is_in(selected_cities_internal_names))
     & (apartments["price"] <= max_price)
@@ -310,8 +305,8 @@ filtered_apartments = filtered_apartments.filter(
         | ~apartments["interior_type"].str.to_lowercase().is_in(possible_interior_types)
         | (apartments["interior_type"] == "")
     )
-    & (apartments["days_online"] <= max_days_online)
-).limit(get_apartments_max_limit())
+    & (apartments["days_online"].cast(pl.Int64) <= max_days_online)
+).limit(max_limit)
 apartments_to_show = filtered_apartments.to_dicts()
 custom_marker = (
     {
@@ -331,11 +326,11 @@ map_html = map_html.encode("ascii", "ignore").decode("ascii")
 # Add iframe:
 components.html(map_html, width=None, height=600)
 st.text(
-    f"Showing {len(apartments_to_show)} apartments (max {get_apartments_max_limit()})."
+    f"Showing {len(apartments_to_show)} apartments (max {max_limit})."
     if apartments_to_show
     else ":red[No apartments found]"
 )
-if len(apartments_to_show) == get_apartments_max_limit():
+if len(apartments_to_show) == max_limit:
     st.write(
-        f":red[Showing the maximum number of apartments ({get_apartments_max_limit()}). Try to apply some filters to see more relevant apartments for you.]"
+        f":red[Showing the maximum number of apartments ({max_limit}). Try to apply some filters to see more relevant apartments for you.]"
     )
