@@ -57,7 +57,17 @@ def generate_map_html(
     logger = get_logger()
     logger.info("Generating map...")
     office_coords = OFFICE_COORDS
-    avg_coords = calculate_average_apartments_coords(apartments)
+    if not apartments:
+        logger.warning("No apartments found, using office coordinates as center...")
+        avg_coords = office_coords
+    else:
+        try:
+            avg_coords = calculate_average_apartments_coords(apartments)
+        except Exception as e:
+            logger.exception(
+                "Error while calculating average coordinates, using office coordinates as center..."
+            )
+            avg_coords = office_coords
     start_location = (avg_coords["lat"], avg_coords["lng"])
     m = folium.Map(location=start_location, zoom_start=11)
     # if the points are too close to each other, cluster them, create a cluster overlay with MarkerCluster
