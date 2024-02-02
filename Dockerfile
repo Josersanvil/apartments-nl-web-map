@@ -1,5 +1,7 @@
 FROM python:3.10.13-slim
 
+RUN apt-get update && apt-get install -y curl
+
 # Install dependencies
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
